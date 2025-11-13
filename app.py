@@ -32,7 +32,15 @@ app = FastAPI(
 # ================================================================
 
 class Review(BaseModel):
-    """Represents a single review inside a product."""
+    """
+    Represents a single review inside a product.
+
+    Required:
+    - review_id: unique id per review
+    - user_id: who wrote the review
+    - rating: 1–5 (validated)
+    - verified: whether it's a verified purchase
+    """
     review_id: str
     user_id: str
     rating: conint(ge=1, le=5)
@@ -40,12 +48,25 @@ class Review(BaseModel):
     verified: bool
 
 class ReviewUpdate(BaseModel):
+    """
+    Partial update for a single review.
+    All fields are optional so PATCH can send only what changes.
+    """
     user_id: Optional[str] = None
     rating: Optional[conint(ge=1, le=5)] = None
     comment: Optional[str] = None
     verified: Optional[bool] = None
 
 class ReviewArrayFilterUpdate(BaseModel):
+    """
+    Request body for arrayFilters-based updates.
+
+    Example:
+    {
+      "filter_criteria": {"user_id": "u100"},
+      "new_data": {"comment": "Edited by moderator"}
+    }
+    """
     filter_criteria: Dict[str, Any] = Field(
         ...,
         description="Criteria to match the review to update",
@@ -58,7 +79,10 @@ class ReviewArrayFilterUpdate(BaseModel):
     )
 
 class ProductCreate(BaseModel):
-    """Model for creating a new product."""
+    """
+    Model for creating a new product.
+    Used as request body for POST /products.
+    """
     sku: str
     name: str
     price: condecimal(ge=0, max_digits=10, decimal_places=2)
