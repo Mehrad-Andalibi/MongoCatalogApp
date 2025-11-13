@@ -34,7 +34,6 @@ app = FastAPI(
 class Review(BaseModel):
     """
     Represents a single review inside a product.
-
     Required:
     - review_id: unique id per review
     - user_id: who wrote the review
