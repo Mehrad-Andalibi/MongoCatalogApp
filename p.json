@@ -1,0 +1,14 @@
+﻿{
+  "sku": "SKU1001",
+  "name": "Wireless Headphones",
+  "price": 129.99,
+  "reviews": [
+    {
+      "review_id": "r1001-1",
+      "user_id": "u100",
+      "rating": 5,
+      "comment": "Great!",
+      "verified": true
+    }
+  ]
+}
