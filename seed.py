@@ -16,6 +16,7 @@ def get_sample_products() -> list[dict]:
         {
             "sku": "SKU1001",
             "name": "Wireless Headphones",
+            "price": 129.99,
             "tags": ["audio", "bluetooth"],
             "reviews": [
                 {
@@ -37,6 +38,7 @@ def get_sample_products() -> list[dict]:
         {
             "sku": "SKU1002",
             "name": "Mechanical Keyboard",
+            "price": 89.99,
             "tags": ["peripherals", "keyboard"],
             "reviews": [
                 {
@@ -51,6 +53,7 @@ def get_sample_products() -> list[dict]:
         {
             "sku": "SKU1003",
             "name": "4K Monitor",
+            "price": 329.99,
             "tags": ["display", "monitor"],
             "reviews": [
                 {
@@ -65,6 +68,7 @@ def get_sample_products() -> list[dict]:
         {
             "sku": "SKU1004",
             "name": "USB-C Docking Station",
+            "price": 74.99,
             "tags": ["peripherals", "dock"],
             "reviews": [],
         },
